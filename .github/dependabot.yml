@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # zod 4 is a breaking migration. The app's test harness and route schemas
+      # are verified against zod 3; a v4 bump fails `npm run typecheck`
+      # (`.parse()` output-type inference changes). Tracked in CHANGELOG.md.
+      - dependency-name: zod
+        versions: ['>=4']
+    open-pull-requests-limit: 10
