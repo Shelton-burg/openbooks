@@ -127,7 +127,7 @@
       /* ===== rotating hero ===== */
       .hero {
         position: relative;
-        background: linear-gradient(180deg, #041c2e 0%, #06283d 68%, #0a3a57 100%);
+        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
         color: #f2f7fb;
         overflow: hidden;
         min-height: 640px;
@@ -172,11 +172,11 @@
         opacity: 0;
         transition: opacity 900ms ease;
         -webkit-mask-image:
-          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 20%, #000 55%),
-          linear-gradient(to top, transparent 0%, #000 26%);
+          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.38) 48%, #000 82%),
+          linear-gradient(to top, transparent 0%, #000 34%);
         mask-image:
-          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 20%, #000 55%),
-          linear-gradient(to top, transparent 0%, #000 26%);
+          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.38) 48%, #000 82%),
+          linear-gradient(to top, transparent 0%, #000 34%);
       }
       .hero-photo img.on {
         opacity: 1;
@@ -186,13 +186,6 @@
       }
       .hero-photo img.p2 {
         object-position: 50% 18%;
-      }
-      .hero-photo::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, #041c2e 0%, #06283d 8%, transparent 45%);
-        pointer-events: none;
       }
       .hero-photo .hint {
         position: absolute;
@@ -338,9 +331,8 @@
       /* rotating strip */
       .strip {
         background: var(--navy);
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         overflow: hidden;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
       .track {
         display: flex;
