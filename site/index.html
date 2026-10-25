@@ -556,16 +556,9 @@
         white-space: nowrap;
       }
       .see {
-        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
-        color: #f2f7fb;
         overflow: hidden;
       }
-      .see h2 {
-        color: #f2f7fb;
-      }
-      .see .sub {
-        color: #9db3c6;
-      }
+
       .shots {
         display: grid;
         grid-template-columns: 1.45fr 1fr;
@@ -623,22 +616,22 @@
       .cap {
         font-family: var(--mono);
         font-size: 12px;
-        color: #b9cbda;
+        color: var(--muted);
         margin-top: 10px;
         line-height: 1.6;
       }
       .cap b {
-        color: #7fd4f5;
+        color: var(--blue-dark);
         font-weight: 600;
       }
       .see-note {
         margin-top: 26px;
         font-family: var(--mono);
         font-size: 12.5px;
-        color: #93a9ba;
+        color: var(--muted);
       }
       .see-note a {
-        color: #7fd4f5;
+        color: var(--blue-dark);
       }
       .steps {
         margin-top: 40px;
@@ -804,9 +797,7 @@
         gap: 48px;
         align-items: center;
       }
-      .road {
-        background: var(--bg2);
-      }
+
       .roadcols {
         margin-top: 40px;
         display: grid;
@@ -951,6 +942,67 @@
       footer .mono {
         color: var(--blue-dark);
       }
+
+      section.dark {
+        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
+        color: #f2f7fb;
+      }
+      section.dark .kicker {
+        color: var(--blue);
+      }
+      section.dark h2 {
+        color: #f2f7fb;
+      }
+      section.dark .sub {
+        color: #9db3c6;
+      }
+      section.dark .steps {
+        border-color: rgba(242, 247, 251, 0.14);
+      }
+      section.dark .step {
+        border-color: rgba(242, 247, 251, 0.14);
+      }
+      section.dark .step h3 {
+        color: #f2f7fb;
+      }
+      section.dark .step p {
+        color: #9db3c6;
+      }
+      section.dark .step .num {
+        color: #7fd4f5;
+      }
+      section.dark .run {
+        background: #0b3550;
+        border-color: rgba(242, 247, 251, 0.14);
+      }
+      section.dark .run h3 {
+        color: #f2f7fb;
+      }
+      section.dark .run p {
+        color: #9db3c6;
+      }
+      section.dark .run code {
+        background: #082a42;
+        border-color: rgba(242, 247, 251, 0.16);
+        color: #dfeaf3;
+      }
+      section.dark .run .tag {
+        color: #7fd4f5;
+      }
+      section.dark .roadcol {
+        background: #0b3550;
+        border-color: rgba(242, 247, 251, 0.14);
+      }
+      section.dark .roadcol h3 {
+        color: #f2f7fb;
+      }
+      section.dark .roadcol li {
+        color: #9db3c6;
+      }
+      section.dark .roadcol .note {
+        color: #93a9ba;
+      }
+
       @media (max-width: 900px) {
         .shots {
           grid-template-columns: 1fr;
@@ -1074,7 +1126,7 @@
       <div class="wrap">
         <div class="sec-head">
           <div>
-            <p class="kicker" style="color: var(--blue)">02 — See it working</p>
+            <p class="kicker">02 — See it working</p>
             <h2>The books, live.</h2>
             <p class="sub">
               Not mock-ups. These are real screens from the interactive demo — the same software
@@ -1139,7 +1191,7 @@
       </div>
     </section>
 
-    <section id="how">
+    <section id="how" class="dark">
       <div class="wrap">
         <p class="kicker">03 — How it works</p>
         <h2>Four steps. That's the whole job.</h2>
@@ -1230,7 +1282,7 @@
       </div>
     </section>
 
-    <section id="run">
+    <section id="run" class="dark">
       <div class="wrap">
         <p class="kicker">05 — Run it</p>
         <h2>Three ways to get going.</h2>
@@ -1290,7 +1342,7 @@
       </div>
     </section>
 
-    <section class="road" id="roadmap">
+    <section class="road dark" id="roadmap">
       <div class="wrap">
         <p class="kicker">07 — Roadmap</p>
         <h2>Where it's going.</h2>
