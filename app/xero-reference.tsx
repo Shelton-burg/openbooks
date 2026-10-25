@@ -110,7 +110,10 @@ export default function XeroReferencePanel({
           <div className="reference-priority-row">
             <span className="priority-index">02</span>
             <div>
-              <h3>Follow up {r.invoices.overdueCount} overdue invoices</h3>
+              <h3>
+                Follow up {r.invoices.overdueCount} overdue{' '}
+                {r.invoices.overdueCount === 1 ? 'invoice' : 'invoices'}
+              </h3>
               <p>
                 {money(r.invoices.overdue)} overdue · {r.invoices.count} invoices outstanding
                 overall
@@ -129,7 +132,8 @@ export default function XeroReferencePanel({
             <div>
               <h3>Review your drafts</h3>
               <p>
-                {r.invoices.draftCount} draft invoices and {r.bills.draftCount} draft bills. Drafts
+                {r.invoices.draftCount} draft {r.invoices.draftCount === 1 ? 'invoice' : 'invoices'}{' '}
+                and {r.bills.draftCount} draft {r.bills.draftCount === 1 ? 'bill' : 'bills'}. Drafts
                 stay outside posted totals.
               </p>
             </div>

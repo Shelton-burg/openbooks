@@ -35,8 +35,8 @@ function walk(dir) {
       issues.push(p + ' environment file');
       continue;
     }
-    // Site photo assets for the GitHub Pages landing page are intentional.
-    if (p.includes(join('site', 'photos'))) {
+    // Site photo and screenshot assets for the GitHub Pages landing page are intentional.
+    if (p.includes(join('site', 'photos')) || p.includes(join('site', 'screenshots'))) {
       continue;
     }
     if (/\.(sqlite|db|zip|tar|png|jpg|jpeg|pdf)$/i.test(name)) {

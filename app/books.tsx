@@ -721,7 +721,10 @@ export default function Books({
                             <FileText />
                           </div>
                           <div>
-                            <strong>{overdue.length} overdue invoices</strong>
+                            <strong>
+                              {overdue.length} overdue{' '}
+                              {overdue.length === 1 ? 'invoice' : 'invoices'}
+                            </strong>
                             <p>
                               {money(overdue.reduce((a, d) => a + d.balance, 0))} waiting to be
                               collected
@@ -734,7 +737,10 @@ export default function Books({
                             <Landmark />
                           </div>
                           <div>
-                            <strong>{unmatched.length} bank lines to review</strong>
+                            <strong>
+                              {unmatched.length} bank {unmatched.length === 1 ? 'line' : 'lines'} to
+                              review
+                            </strong>
                             <p>Match payments to your books</p>
                           </div>
                           <ChevronRight />
@@ -751,7 +757,10 @@ export default function Books({
                           </div>
                           <div>
                             <strong>
-                              {invoices.filter((d) => d.status === 'draft').length} draft invoices
+                              {invoices.filter((d) => d.status === 'draft').length} draft{' '}
+                              {invoices.filter((d) => d.status === 'draft').length === 1
+                                ? 'invoice'
+                                : 'invoices'}
                             </strong>
                             <p>Review before posting</p>
                           </div>

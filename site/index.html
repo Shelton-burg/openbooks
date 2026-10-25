@@ -132,28 +132,6 @@
         overflow: hidden;
         min-height: 640px;
       }
-      .hero-bar {
-        position: relative;
-        z-index: 5;
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 24px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .hero-bar .wordmark {
-        color: #f2f7fb;
-      }
-      .hero-bar .wordmark small {
-        color: rgba(242, 247, 251, 0.55);
-      }
-      .hero-bar a {
-        color: var(--blue);
-        font-weight: 700;
-        font-size: 15px;
-        text-decoration: none;
-      }
       .hero-photo {
         position: absolute;
         inset: 0;
@@ -528,6 +506,472 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* ===== page sections ===== */
+      section {
+        padding: 72px 0;
+        scroll-margin-top: 24px;
+      }
+      .wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      .kicker {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--blue-dark);
+      }
+      h2 {
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        color: var(--navy);
+        margin: 10px 0 14px;
+        max-width: 640px;
+      }
+      h2 em {
+        font-style: normal;
+        color: var(--blue);
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 17.5px;
+        max-width: 56ch;
+      }
+      .sec-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .sec-head .go {
+        font-family: var(--mono);
+        font-size: 13.5px;
+        color: var(--blue);
+        white-space: nowrap;
+      }
+      .see {
+        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
+        color: #f2f7fb;
+        overflow: hidden;
+      }
+      .see h2 {
+        color: #f2f7fb;
+      }
+      .see .sub {
+        color: #9db3c6;
+      }
+      .shots {
+        display: grid;
+        grid-template-columns: 1.45fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 18px;
+        margin-top: 38px;
+      }
+      .frame {
+        background: #0b3550;
+        border: 1px solid rgba(242, 247, 251, 0.14);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 24px 60px rgba(1, 12, 22, 0.55);
+      }
+      .frame .chrome {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        background: #082a42;
+        border-bottom: 1px solid rgba(242, 247, 251, 0.1);
+      }
+      .frame .chrome i {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .frame .chrome i:nth-child(1) {
+        background: #ff5f57;
+      }
+      .frame .chrome i:nth-child(2) {
+        background: #febc2e;
+      }
+      .frame .chrome i:nth-child(3) {
+        background: #28c840;
+      }
+      .frame .chrome .url {
+        margin-left: 8px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        color: #9db3c6;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .shot-main {
+        grid-row: span 2;
+      }
+      .cap {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: #b9cbda;
+        margin-top: 10px;
+        line-height: 1.6;
+      }
+      .cap b {
+        color: #7fd4f5;
+        font-weight: 600;
+      }
+      .see-note {
+        margin-top: 26px;
+        font-family: var(--mono);
+        font-size: 12.5px;
+        color: #93a9ba;
+      }
+      .see-note a {
+        color: #7fd4f5;
+      }
+      .steps {
+        margin-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 26px;
+        padding: 34px 8px;
+        border-bottom: 1px solid var(--line);
+      }
+      .step .num {
+        font-family: var(--mono);
+        font-size: 15px;
+        color: var(--blue);
+        letter-spacing: 0.12em;
+      }
+      .step h3 {
+        font-size: 23px;
+        font-weight: 800;
+        color: var(--navy);
+        letter-spacing: -0.01em;
+        margin-bottom: 6px;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 16.5px;
+        max-width: 64ch;
+      }
+      .why {
+        background: var(--bg2);
+      }
+      .whys {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+      }
+      .whycard {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 34px;
+      }
+      .whycard .tag {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        text-transform: uppercase;
+      }
+      .whycard h3 {
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--navy);
+        letter-spacing: -0.015em;
+        margin: 12px 0 10px;
+      }
+      .whycard p {
+        color: var(--muted);
+        font-size: 15.5px;
+      }
+      .founder {
+        margin-top: 34px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px 30px;
+      }
+      .founder .av {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #13b5ea, #0e8fc2);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .founder p {
+        color: var(--muted);
+        font-size: 15.5px;
+        max-width: 72ch;
+      }
+      .founder b {
+        color: var(--navy);
+      }
+      .runs {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .run {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 26px;
+        background: #fff;
+      }
+      .run .tag {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.14em;
+        color: var(--blue);
+        text-transform: uppercase;
+      }
+      .run h3 {
+        font-size: 19px;
+        font-weight: 800;
+        color: var(--navy);
+        margin: 10px 0 8px;
+      }
+      .run p {
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+      .run code {
+        font-family: var(--mono);
+        font-size: 12px;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1px 6px;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      .limits {
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 38px;
+      }
+      .limits ul {
+        list-style: none;
+        margin-top: 16px;
+      }
+      .limits li {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        font-size: 15.5px;
+      }
+      .limits li::before {
+        content: '—';
+        color: var(--blue);
+      }
+      .limits li:last-child {
+        border: none;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .road {
+        background: var(--bg2);
+      }
+      .roadcols {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .roadcol {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 30px;
+      }
+      .roadcol h3 {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 16px;
+      }
+      .roadcol ul {
+        list-style: none;
+      }
+      .roadcol li {
+        display: flex;
+        gap: 12px;
+        padding: 9px 0;
+        color: var(--muted);
+        font-size: 15.5px;
+        align-items: baseline;
+      }
+      .roadcol li::before {
+        content: '✓';
+        color: var(--blue);
+        font-weight: 700;
+      }
+      .roadcol.plan li::before {
+        content: '→';
+        color: #febc2e;
+        font-weight: 700;
+      }
+      .roadcol .note {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 14px;
+      }
+      .faq {
+        margin-top: 40px;
+        border-top: 1px solid var(--line);
+      }
+      .faq details {
+        border-bottom: 1px solid var(--line);
+      }
+      .faq summary {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        padding: 22px 4px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 17.5px;
+        color: var(--navy);
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary .plus {
+        font-family: var(--mono);
+        color: var(--blue);
+        font-size: 20px;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+      }
+      .faq details[open] summary .plus {
+        transform: rotate(45deg);
+      }
+      .faq details p {
+        padding: 0 4px 22px;
+        color: var(--muted);
+        font-size: 15.5px;
+        max-width: 72ch;
+      }
+      .faq details p code {
+        font-family: var(--mono);
+        font-size: 13px;
+        background: var(--bg2);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1px 6px;
+        color: var(--ink);
+      }
+      .cta {
+        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
+        color: #f2f7fb;
+        padding: 88px 0;
+      }
+      .cta h2 {
+        color: #f2f7fb;
+        max-width: none;
+      }
+      .cta .sub {
+        color: #9db3c6;
+      }
+      .cta .btn-row {
+        display: flex;
+        gap: 14px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .cta .fine {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: #93a9ba;
+        margin-top: 22px;
+      }
+      .cta .fine a {
+        color: #7fd4f5;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 44px 0;
+        background: var(--bg2);
+        color: var(--muted);
+        font-size: 14.5px;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      footer nav {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+      }
+      footer nav a {
+        color: var(--muted);
+      }
+      footer .mono {
+        color: var(--blue-dark);
+      }
+      @media (max-width: 900px) {
+        .shots {
+          grid-template-columns: 1fr;
+        }
+        .shot-main {
+          grid-row: auto;
+        }
+        .whys,
+        .runs,
+        .split,
+        .roadcols {
+          grid-template-columns: 1fr;
+        }
+        .step {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        h2 {
+          font-size: 32px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -536,21 +980,15 @@
         <span class="dot">OB</span>OpenBooks<small>AU · self-hosted</small>
       </div>
       <div class="links">
-        <a href="#what">What it does</a>
-        <a href="#run">Run it</a>
-        <a href="#limits">Honest limits</a>
+        <a href="#see">See it</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="https://github.com/Shelton-burg/openbooks">GitHub</a>
       </div>
     </nav>
 
     <header class="hero" id="hero">
-      <div class="hero-bar">
-        <div class="wordmark">
-          <span class="dot">OB</span>OpenBooks<small>AU · self-hosted</small>
-        </div>
-        <a href="https://github.com/Shelton-burg/openbooks">GitHub ↗</a>
-      </div>
-
       <div
         class="hero-photo"
         id="heroPhoto"
@@ -559,7 +997,7 @@
         aria-label="Next photo — click or press Enter to skip"
       >
         <img
-          class="p1"
+          class="p1 on"
           src="photos/tradie.jpg"
           alt="Australian plumber beside his ute, hands in pockets, smiling"
         />
@@ -632,92 +1070,210 @@
       </div>
     </div>
 
-    <section id="what">
+    <section class="see" id="see">
       <div class="wrap">
-        <p class="section-num">01 — What it does</p>
-        <h2>Everything a small business needs.</h2>
-        <div class="feature-grid">
-          <div class="feature">
-            <div class="ico">🧾</div>
-            <h3>Invoices, quotes, bills, POs</h3>
-            <p>
-              Post a document and it lands in the ledger. Drafts stay drafts until you review them.
-              Corrections are reversals, never silent edits.
+        <div class="sec-head">
+          <div>
+            <p class="kicker" style="color: var(--blue)">02 — See it working</p>
+            <h2>The books, live.</h2>
+            <p class="sub">
+              Not mock-ups. These are real screens from the interactive demo — the same software
+              you'd be running, with a fictional plumber's books loaded in.
             </p>
           </div>
-          <div class="feature">
-            <div class="ico">🏦</div>
-            <h3>Bank matching, line by line</h3>
-            <p>
-              Import your CSV and allocate every line. Transfers between your own accounts never
-              touch profit or GST.
+          <a class="go" href="./demo/">Open the interactive demo ↗</a>
+        </div>
+        <div class="shots">
+          <div class="shot-main">
+            <div class="frame">
+              <div class="chrome">
+                <i></i><i></i><i></i
+                ><span class="url">openbooks — overview · coastal plumbing</span>
+              </div>
+              <img
+                src="screenshots/overview.jpg"
+                alt="OpenBooks overview: bank balance, money owed, bills to pay and items needing attention"
+                loading="lazy"
+              />
+            </div>
+            <p class="cap">
+              <b>Overview.</b> Where the business stands today — balance, what's owed, and the three
+              things that actually need you.
             </p>
           </div>
-          <div class="feature">
-            <div class="ico">📊</div>
-            <h3>GST &amp; BAS the Australian way</h3>
-            <p>
-              Cash or accrual basis, purchase-evidence review, accountant packs with trial balance,
-              P&amp;L and contractor worksheet. The app never claims on your behalf.
+          <div>
+            <div class="frame">
+              <div class="chrome">
+                <i></i><i></i><i></i><span class="url">openbooks — invoices</span>
+              </div>
+              <img
+                src="screenshots/invoices.jpg"
+                alt="OpenBooks invoices list with draft, overdue, awaiting and paid invoices"
+                loading="lazy"
+              />
+            </div>
+            <p class="cap">
+              <b>Invoices.</b> Draft, overdue, awaiting, paid — one list, nothing falls through.
             </p>
           </div>
-          <div class="feature">
-            <div class="ico">🔒</div>
-            <h3>Your data stays yours</h3>
+          <div>
+            <div class="frame">
+              <div class="chrome">
+                <i></i><i></i><i></i><span class="url">openbooks — quotes</span>
+              </div>
+              <img
+                src="screenshots/quotes.jpg"
+                alt="OpenBooks quotes list with an issued quote ready to convert"
+                loading="lazy"
+              />
+            </div>
+            <p class="cap">
+              <b>Quotes.</b> Issue a quote, and when they say go it becomes the invoice. No
+              re-typing.
+            </p>
+          </div>
+        </div>
+        <p class="see-note">
+          Fictional data, read-only, nothing to sign up for — <a href="./demo/">try it yourself</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <p class="kicker">03 — How it works</p>
+        <h2>Four steps. That's the whole job.</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="num">01 — QUOTE</span>
+            <div>
+              <h3>Quote the job</h3>
+              <p>
+                Send the quote, watch it land, and when the client says go it converts straight into
+                an invoice. The numbers never get re-typed.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">02 — REVIEW</span>
+            <div>
+              <h3>Post and review</h3>
+              <p>
+                Invoices, bills and purchase orders arrive as drafts. You review them before they
+                post — and if something needs fixing, corrections are reversals. Nothing silently
+                disappears.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">03 — RECONCILE</span>
+            <div>
+              <h3>Match the bank, line by line</h3>
+              <p>
+                Import your statement CSV and allocate every line. Money moved between your own
+                accounts never touches profit or GST — the classic traps are handled.
+              </p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="num">04 — REPORT</span>
+            <div>
+              <h3>BAS made boring</h3>
+              <p>
+                Quarter end arrives and the workpapers are already there: trial balance, P&amp;L,
+                contractor worksheet — everything your accountant wants, in one pack.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="wrap">
+        <p class="kicker">04 — Why OpenBooks</p>
+        <h2>Built different, on purpose.</h2>
+        <div class="whys">
+          <div class="whycard">
+            <span class="tag">Free</span>
+            <h3>Free, actually.</h3>
             <p>
-              Local database, verified backups, per-business restore. No cloud account, no
-              telemetry, no lock-in. MIT licence — fork it, read it, keep it forever.
+              MIT licence. No subscription, no feature walls, no trial countdown. The code is yours
+              — read it, fork it, keep it forever.
+            </p>
+          </div>
+          <div class="whycard">
+            <span class="tag">Private</span>
+            <h3>Your books stay on your computer.</h3>
+            <p>
+              A local database with verified daily backups. No cloud account, no telemetry — nobody
+              else's server ever sees your numbers.
+            </p>
+          </div>
+          <div class="whycard">
+            <span class="tag">Tradie-built</span>
+            <h3>Started by a plumber.</h3>
+            <p>
+              Made on the Gold Coast by a tradie who got sick of paying for software that speaks
+              accountant. If the words make sense to you, that's on purpose.
+            </p>
+          </div>
+        </div>
+        <div class="founder">
+          <div class="av">S</div>
+          <p>
+            <b>From the founder:</b> "I ran my plumbing business on software I didn't understand and
+            paid for the privilege. OpenBooks is the one I wanted: does the books, speaks English,
+            costs nothing."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="run">
+      <div class="wrap">
+        <p class="kicker">05 — Run it</p>
+        <h2>Three ways to get going.</h2>
+        <p class="sub">Pick whichever fits. Same software, same data — all three are free.</p>
+        <div class="runs">
+          <div class="run">
+            <span class="tag">Easiest</span>
+            <h3>Windows installer</h3>
+            <p>
+              Download, run it, and OpenBooks appears in your Start menu. No Node, no Docker, no
+              accounts. Your books live on your PC and are backed up daily.
+            </p>
+          </div>
+          <div class="run">
+            <span class="tag">For tinkerers</span>
+            <h3>Node 24</h3>
+            <p>
+              <code>npm ci --ignore-scripts</code> · <code>cp .env.example .env</code> ·
+              <code>npm run setup</code> · <code>npm run build</code> · <code>npm start</code> —
+              then open <code>http://localhost:3000</code>.
+            </p>
+          </div>
+          <div class="run">
+            <span class="tag">For servers</span>
+            <h3>Docker</h3>
+            <p>
+              <code>docker compose up -d</code> and it's running. Full instructions live in the
+              <a href="https://github.com/Shelton-burg/openbooks#docker-pilot">README</a>.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="run" style="padding-top: 0">
-      <div class="wrap">
-        <div class="how">
-          <h3>Three ways to run OpenBooks</h3>
-          <ol>
-            <li>
-              <b>1</b>
-              <span
-                ><strong>Windows installer</strong> — download from the
-                <a href="https://github.com/Shelton-burg/openbooks/releases">releases page</a>, run
-                it, and open OpenBooks from your Start menu. No Node, Docker or accounts needed.
-                Your books live on your PC and are backed up daily.</span
-              >
-            </li>
-            <li>
-              <b>2</b>
-              <span
-                ><strong>Node 24</strong> — <code>npm ci --ignore-scripts</code> ·
-                <code>cp .env.example .env</code> · <code>npm run setup</code> ·
-                <code>npm run build</code> · <code>npm start</code>, then open
-                <code>http://localhost:3000</code>.</span
-              >
-            </li>
-            <li>
-              <b>3</b>
-              <span
-                ><strong>Docker</strong> — <code>docker compose up -d</code>. Full instructions in
-                the
-                <a href="https://github.com/Shelton-burg/openbooks#docker-pilot">README</a>.</span
-              >
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section id="limits" style="padding-top: 0">
+    <section id="limits">
       <div class="wrap">
         <div class="split">
           <div>
-            <p class="section-num">02 — The honest part</p>
-            <h2>What OpenBooks is <em style="color: var(--blue)">not</em> — yet.</h2>
-            <p style="color: var(--muted); max-width: 48ch; margin-top: 10px">
-              We'd rather tell you now than after your BAS is due. A working beta, built in the
-              open, tested hard — still growing.
+            <p class="kicker">06 — The honest part</p>
+            <h2>What OpenBooks <em>isn't</em> — yet.</h2>
+            <p class="sub">
+              We'd rather tell you now than after your BAS is due. A working beta, tested hard,
+              still growing.
             </p>
           </div>
           <div class="limits">
@@ -726,81 +1282,152 @@
               <li>No live bank feeds — CSV import instead</li>
               <li>No tax lodgment to the ATO</li>
               <li>No card-payment integration</li>
-              <li>Windows installer unsigned (beta) — expected SmartScreen warning</li>
-              <li>Not accountant-certified — keep your current system during testing</li>
+              <li>Windows installer unsigned (beta) — expect a SmartScreen prompt</li>
+              <li>Not accountant-certified — keep your current system while you test</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="road" id="roadmap">
+      <div class="wrap">
+        <p class="kicker">07 — Roadmap</p>
+        <h2>Where it's going.</h2>
+        <p class="sub">Open source, in the open — the board is public, and you can shape it.</p>
+        <div class="roadcols">
+          <div class="roadcol">
+            <h3>In the beta now</h3>
+            <ul>
+              <li>Invoices, quotes, bills &amp; purchase orders</li>
+              <li>Bank reconciliation from CSV</li>
+              <li>GST &amp; BAS workpapers (cash or accrual)</li>
+              <li>Local backups you can restore</li>
+              <li>129 automated tests and counting</li>
+            </ul>
+          </div>
+          <div class="roadcol plan">
+            <h3>On the board</h3>
+            <ul>
+              <li>Single Touch Payroll</li>
+              <li>Live bank feeds</li>
+              <li>Mac &amp; Linux installers</li>
+              <li>Multi-user &amp; accountant access</li>
+              <li>ATO lodgment</li>
+            </ul>
+            <p class="note">
+              No dates promised — things ship when they're tested, not when they're scheduled.
+              <a href="https://github.com/Shelton-burg/openbooks/issues">See the issues board →</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <p class="kicker">08 — Questions</p>
+        <h2>Asked. Answered.</h2>
+        <div class="faq">
+          <details>
+            <summary>Is OpenBooks really free? <span class="plus">+</span></summary>
+            <p>
+              Yes. The code is MIT-licensed — use it, change it, share it, build a business on it.
+              There's no paid tier hiding behind this page and no plan to add one. If you want to
+              support the project, contributing code, docs or bug reports is the best way.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Why would anyone give away accounting software? <span class="plus">+</span>
+            </summary>
+            <p>
+              Because the books shouldn't cost a tradesperson a monthly subscription. The founder
+              runs a plumbing business and watched software fees stack up year after year. OpenBooks
+              is the community edition of that frustration — free, so nobody's locked out of running
+              a proper business.
+            </p>
+          </details>
+          <details>
+            <summary>Does it talk to the ATO? <span class="plus">+</span></summary>
+            <p>
+              Not yet. There's no lodgment and no Single Touch Payroll in the beta — you'll still
+              handle lodgment through your usual channel. What OpenBooks gives you is the clean data
+              behind it: BAS workpapers, trial balance and P&amp;L, ready for you or your
+              accountant. ATO lodgment is on the roadmap.
+            </p>
+          </details>
+          <details>
+            <summary>Do I need to be technical to run it? <span class="plus">+</span></summary>
+            <p>
+              No. The Windows installer is the path for everyone: download, run, done. The Node and
+              Docker options exist for people who prefer them, but they're optional, not required.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Is it as full-featured as the big cloud platforms? <span class="plus">+</span>
+            </summary>
+            <p>
+              Honestly, not yet. The core loop — quoting, invoicing, bills, reconciliation and BAS —
+              is solid and tested, but payroll and live bank feeds are still ahead of us. The
+              "honest limits" section on this page is the full list; check it against what your
+              business needs before switching.
+            </p>
+          </details>
+          <details>
+            <summary>Can I trust it with my books? <span class="plus">+</span></summary>
+            <p>
+              Your data stays on your own computer in a local database, with verified daily backups.
+              The entire codebase is public — you (or your IT person) can read exactly what it does.
+              It's still a beta: run it alongside your current system for a while, and if you find
+              something wrong,
+              <a href="https://github.com/Shelton-burg/openbooks/issues">tell us</a>.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="download">
+      <div class="wrap">
+        <p class="kicker" style="color: var(--blue)">Ready when you are</p>
+        <h2>Your books. Your computer. Free.</h2>
+        <p class="sub">
+          Download OpenBooks, load the sample business, and kick the tyres — no card, no account, no
+          expiry.
+        </p>
+        <div class="btn-row">
+          <a class="btn solid" href="https://github.com/Shelton-burg/openbooks/releases"
+            >⬇ Download for Windows — free</a
+          >
+          <a class="btn ghost" href="./demo/">▶ Try the interactive demo</a>
+          <a class="btn ghost" href="https://github.com/Shelton-burg/openbooks"
+            >☆ Star it on GitHub</a
+          >
+        </div>
+        <p class="fine">
+          OpenBooks v0.1.0-beta.3 · MIT licence · checksums published with every release ·
+          <a href="https://github.com/Shelton-burg/openbooks/blob/main/SECURITY.md"
+            >report a vulnerability</a
+          >
+        </p>
+      </div>
+    </section>
+
     <footer>
       <div class="wrap">
         <span class="mono">OpenBooks v0.1.0-beta.3</span>
-        <span
-          >MIT licence · Code on <a href="https://github.com/Shelton-burg/openbooks">GitHub</a> ·
-          <a href="https://github.com/Shelton-burg/openbooks/blob/main/SECURITY.md"
-            >Report a vulnerability</a
-          ></span
-        >
+        <nav>
+          <a href="https://github.com/Shelton-burg/openbooks">GitHub</a>
+          <a href="https://github.com/Shelton-burg/openbooks/releases">Releases</a>
+          <a href="./demo/">Demo</a>
+          <a href="https://github.com/Shelton-burg/openbooks/issues">Issues</a>
+          <a href="https://github.com/Shelton-burg/openbooks/blob/main/SECURITY.md">Security</a>
+          <a href="https://github.com/Shelton-burg/openbooks/blob/main/LICENSE">Licence (MIT)</a>
+        </nav>
         <span>Made for Australian small business.</span>
       </div>
     </footer>
-
-    <script>
-      (function () {
-        var photo = document.getElementById('heroPhoto');
-        var images = photo.querySelectorAll('img');
-        var dots = document.querySelectorAll('#dots button');
-        var slides = document.querySelectorAll('.slide');
-        var hint = document.getElementById('hint');
-        var current = 0;
-        var timer = null;
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var INTERVAL = 7000;
-
-        function show(n) {
-          current = (n + images.length) % images.length;
-          images.forEach(function (im, i) {
-            im.classList.toggle('on', i === current);
-          });
-          slides.forEach(function (s, i) {
-            s.classList.toggle('on', i === current);
-          });
-          dots.forEach(function (d, i) {
-            d.classList.toggle('on', i === current);
-          });
-        }
-        function restart() {
-          if (timer) clearInterval(timer);
-          if (!reduced)
-            timer = setInterval(function () {
-              show(current + 1);
-            }, INTERVAL);
-        }
-        function advance() {
-          show(current + 1);
-          restart();
-          hint.style.opacity = '0';
-        }
-        photo.addEventListener('click', advance);
-        photo.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            advance();
-          }
-        });
-        dots.forEach(function (d) {
-          d.addEventListener('click', function (e) {
-            e.stopPropagation();
-            show(Number(d.dataset.slide));
-            restart();
-            hint.style.opacity = '0';
-          });
-        });
-        show(0);
-        restart();
-      })();
-    </script>
   </body>
 </html>
