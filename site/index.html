@@ -156,10 +156,7 @@
       }
       .hero-photo {
         position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: min(52%, 640px);
+        inset: 0;
         z-index: 2;
         cursor: pointer;
       }
@@ -172,36 +169,44 @@
         opacity: 0;
         transition: opacity 900ms ease;
         -webkit-mask-image:
-          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.38) 48%, #000 82%),
-          linear-gradient(to top, transparent 0%, #000 34%);
+          linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.1) 22%,
+            rgba(0, 0, 0, 0.55) 48%,
+            #000 72%
+          ),
+          linear-gradient(to top, transparent 0%, #000 22%);
         mask-image:
-          linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.38) 48%, #000 82%),
-          linear-gradient(to top, transparent 0%, #000 34%);
+          linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.1) 22%,
+            rgba(0, 0, 0, 0.55) 48%,
+            #000 72%
+          ),
+          linear-gradient(to top, transparent 0%, #000 22%);
       }
       .hero-photo img.on {
         opacity: 1;
       }
       .hero-photo img.p1 {
-        object-position: 72% center;
+        object-position: 72% 38%;
       }
       .hero-photo img.p2 {
-        object-position: 50% 18%;
+        object-position: 70% 32%;
       }
-      .hero-photo .hint {
+      .hero-photo::after {
+        content: '';
         position: absolute;
-        left: 26px;
-        bottom: 22px;
-        z-index: 3;
-        font-family: var(--mono);
-        font-size: 11.5px;
-        letter-spacing: 0.08em;
-        color: rgba(242, 247, 251, 0.85);
-        background: rgba(6, 40, 61, 0.55);
-        border: 1px solid rgba(242, 247, 251, 0.25);
-        border-radius: 999px;
-        padding: 7px 14px;
+        inset: 0;
         pointer-events: none;
-        transition: opacity 0.4s ease;
+        background: linear-gradient(
+          to right,
+          rgba(4, 28, 46, 0.88) 0%,
+          rgba(4, 28, 46, 0.45) 38%,
+          transparent 68%
+        );
       }
       .hero-photo .dots {
         position: absolute;
@@ -246,6 +251,7 @@
         animation: fadeup 0.7s ease both;
       }
       .slide h1 {
+        text-shadow: 0 2px 24px rgba(4, 28, 46, 0.55);
         font-weight: 800;
         font-size: 56px;
         line-height: 1.04;
@@ -258,6 +264,7 @@
         color: var(--blue);
       }
       .slide .lede {
+        text-shadow: 0 1px 14px rgba(4, 28, 46, 0.6);
         color: #9db3c6;
         font-size: 19px;
         max-width: 46ch;
@@ -318,11 +325,15 @@
         font-family: var(--mono);
         font-size: 12px;
         color: #9db3c6;
+        flex-wrap: wrap;
+      }
+      .hero-meta #hint {
+        color: #7fd4f5;
+        transition: opacity 0.4s ease;
       }
       @media (max-width: 900px) {
         .hero-photo {
-          width: 100%;
-          opacity: 0.5;
+          opacity: 0.55;
         }
         .slide h1 {
           font-size: 40px;
@@ -557,7 +568,6 @@
           src="photos/workshop.jpg"
           alt="Workshop owner with her books done for the day"
         />
-        <div class="hint" id="hint">click the photo to see the other side ↺</div>
         <div class="dots" id="dots">
           <button class="on" data-slide="0" aria-label="Show the plumber"></button>
           <button data-slide="1" aria-label="Show the workshop owner"></button>
@@ -588,7 +598,7 @@
         </div>
         <div class="hero-meta">
           <span>✓ No card required</span><span>✓ Your data stays yours</span
-          ><span>✓ Free forever</span>
+          ><span>✓ Free forever</span><span id="hint">↺ click the photo to skip</span>
         </div>
         <a
           class="demo-link"
