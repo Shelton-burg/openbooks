@@ -26,11 +26,11 @@ export default function Cutover({
     <section className="panel settings-panel book-form">
       <h2>Compare your books with Xero</h2>
       <p>
-        Use reports with the same date and GST basis. Map Xero account codes to the TradeDesk codes
+        Use reports with the same date and GST basis. Map Xero account codes to the OpenBooks codes
         below. Amounts are AUD; debit balances are positive and credit balances negative.
       </p>
       <details>
-        <summary>TradeDesk account codes</summary>
+        <summary>OpenBooks account codes</summary>
         {accounts.map((a) => (
           <p key={a[0]}>
             {a[0]} · {a[1]}

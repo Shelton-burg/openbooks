@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-beta.3 — 2026-10-25
+
+- **Rebranded to OpenBooks.** App, login screen, desktop packaging scripts, docs and repository are now OpenBooks. The project remains MIT-licensed; the TradeDesk name and logo remain separate from the code.
+- **New login screen** — friendly sky-blue design with a password show/hide control and a clear invitation-acceptance path.
+- **Public website** — the landing page at `site/index.html` (live on GitHub Pages) explains the product, how to run it, and the honest limits. The interactive demo moved behind it.
+- New favicon and app title.
+- Release 0.1.0-beta.3 ships source only: the Windows installer is rebuilt under the OpenBooks name in the next release (unsigned beta; Windows pilot still outstanding).
+
 ## 0.1.0-beta.2 — 2026-10-25
 
 First public beta of the Community edition: free, MIT-licensed, self-hosted Australian bookkeeping.

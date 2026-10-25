@@ -2,14 +2,14 @@
 
 ## GitHub
 
-Create a NEW empty repository named `tradedesk-books-community` under the intended account. Do not change the visibility or contents of an existing private business repository. Upload this clean package; it has no inherited Git history, Sites identity, customer records or provider credentials.
+Create a NEW empty repository named `OpenBooks` under the intended account. Do not change the visibility or contents of an existing private business repository. Upload this clean package; it has no inherited Git history, Sites identity, customer records or provider credentials.
 
 From its extracted directory, after checking the contents:
 
 ```sh
 git init
 git add .
-git commit -m "Initial TradeDesk Books Community beta"
+git commit -m "Initial OpenBooks beta"
 git branch -M main
 ```
 
@@ -21,7 +21,7 @@ Publish a tagged beta release with a source ZIP, checksums, change notes, instal
 
 ## GitHub Pages demo
 
-Run `npm ci --ignore-scripts` and `npm run demo:build`. Serve the contents of `demo-dist` as static assets. Include a clean source archive named `tradedesk-books-community.zip` next to `index.html` to enable its download link. This is a read-only, fictional-data demo; Pages is not the self-hosted accounting server.
+Run `npm ci --ignore-scripts` and `npm run demo:build`. Serve the contents of `demo-dist` as static assets. Include a clean source archive named `OpenBooks.zip` next to `index.html` to enable its download link. This is a read-only, fictional-data demo; Pages is not the self-hosted accounting server.
 
 ## Hugging Face Static Space
 
@@ -29,7 +29,7 @@ Create a new Static HTML Space, then upload only the contents of `demo-dist`, it
 
 ```yaml
 ---
-title: TradeDesk Books Community Demo
+title: OpenBooks Demo
 emoji: 🧾
 colorFrom: blue
 colorTo: indigo

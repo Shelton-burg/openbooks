@@ -24,8 +24,8 @@ The initial build was produced on Linux with the Windows Node ZIP, NSIS Windows 
 
 ## Design and access boundary
 
-- Install per Windows user, without UAC escalation, under `%LOCALAPPDATA%\Programs\TradeDesk Books`.
-- Keep SQLite and immutable object files under `%LOCALAPPDATA%\TradeDesk Books\data`.
+- Install per Windows user, without UAC escalation, under `%LOCALAPPDATA%\Programs\OpenBooks`.
+- Keep SQLite and immutable object files under `%LOCALAPPDATA%\OpenBooks\data`.
 - The accounting service binds exclusively to `127.0.0.1:38471`. Fail if that port is occupied.
 - Desktop controls bind a separate random loopback port. An unguessable local capability, exact Host and Origin checks protect setup, backup and restore. The capability is kept in the user's local profile and passed to the control page in the URL fragment, then moved to session storage. It is not a cloud login credential.
 - Same-OS-user processes can access the user's local files. Do not treat this as isolation from malicious software already running as that Windows user.

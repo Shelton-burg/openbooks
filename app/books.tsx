@@ -405,7 +405,7 @@ export default function Books({
               <Wrench size={23} />
             </div>
             <div>
-              <b>TradeDesk</b>
+              <b>OpenBooks</b>
               <span>BOOKS</span>
             </div>
           </SidebarHeader>
@@ -507,7 +507,7 @@ export default function Books({
                   {view === 'Xero reference'
                     ? 'Your business priorities, based on the information you shared.'
                     : view === 'Overview'
-                      ? 'Balances and activity posted in TradeDesk Books.'
+                      ? 'Balances and activity posted in OpenBooks.'
                       : view === 'Invoices'
                         ? 'Create, review and track your customer invoices.'
                         : view === 'Bills & expenses'
@@ -1509,7 +1509,7 @@ export default function Books({
             )}
             <footer className="workspace-footer">
               <span>
-                TradeDesk Books <b>·</b> Business workspace
+                OpenBooks <b>·</b> Business workspace
               </span>
               <span>Made for your working day.</span>
             </footer>

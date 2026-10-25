@@ -1,8 +1,8 @@
-# TradeDesk Books Community
+# OpenBooks
 
-**0.1.0-beta.2 · Australian bookkeeping · Free self-hosted community beta**
+**0.1.0-beta.3 · Australian bookkeeping · Free and self-hosted**
 
-Free, MIT-licensed software for invoicing, supplier bills and bookkeeping. No TradeDesk subscription or ChatGPT account is required to run this edition. Hosting, storage, external AI and email providers may charge separately. MIT permits commercial reuse; the software licence does not grant rights to the TradeDesk name or logo.
+Free, MIT-licensed software for invoicing, supplier bills and bookkeeping. No subscription and no ChatGPT account is required to run this edition. Hosting, storage, external AI and email providers may charge separately. MIT permits commercial reuse; the software licence does not grant rights to the TradeDesk name or logo.
 
 This release is a development beta, not accountant-certified software or a complete Xero migration. Do not cancel an existing accounting service until real records, reports, migrations and recovery have been independently checked. See [release status](docs/RELEASE_STATUS.md).
 

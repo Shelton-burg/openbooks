@@ -31,7 +31,7 @@ await writeFile(
   join(target, 'release.json'),
   JSON.stringify(
     {
-      product: 'TradeDesk Books Community',
+      product: 'OpenBooks',
       version,
       target: 'win32-x64',
       node: '24.22.0',

@@ -335,7 +335,7 @@ function DocumentImport({state, canWrite, mutate}: Omit<Props, 'onGo'>) {
                     label={'Map account ' + code}
                     value={mapping.accounts[code] || 'none'}
                     options={[
-                      ['none', 'Choose TradeDesk account'],
+                      ['none', 'Choose OpenBooks account'],
                       ...accounts.filter(
                         (a) =>
                           a[2] === (type === 'invoice' ? 'income' : 'expense') ||

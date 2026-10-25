@@ -26,7 +26,7 @@ if (mode === '--stop') {
   p.unref();
   let ready = false;
   const home =
-    process.env.TRADEDESK_DESKTOP_HOME || join(process.env.LOCALAPPDATA || '', 'TradeDesk Books');
+    process.env.OPENBOOKS_DESKTOP_HOME || join(process.env.LOCALAPPDATA || '', 'OpenBooks');
   for (let n = 0; n < 180 && !failed; n++) {
     try {
       const s = JSON.parse(await readFile(join(home, 'desktop-session.json'), 'utf8'));
@@ -43,7 +43,7 @@ if (mode === '--stop') {
   }
   if (!ready) {
     console.error(
-      'TradeDesk Books could not start. Open ' +
+      'OpenBooks could not start. Open ' +
         join(home, 'desktop.log') +
         ' for details. Another application may be using port 38471.',
     );

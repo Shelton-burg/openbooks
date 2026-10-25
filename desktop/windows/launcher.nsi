@@ -2,7 +2,7 @@ Unicode true
 RequestExecutionLevel user
 SilentInstall silent
 AutoCloseWindow true
-Name "TradeDesk Books"
+Name "OpenBooks"
 OutFile "${OUTPUT}"
 !include "FileFunc.nsh"
 !include "LogicLib.nsh"
@@ -12,11 +12,11 @@ Section
   ${AndIf} $0 != "--controls"
   ${AndIf} $0 != "--stop"
   ${AndIf} $0 != "--startup"
-    MessageBox MB_ICONSTOP "Unknown TradeDesk Books command."
+    MessageBox MB_ICONSTOP "Unknown OpenBooks command."
     Quit
   ${EndIf}
   IfFileExists "$EXEDIR\runtime\node.exe" +3 0
-    MessageBox MB_ICONSTOP "TradeDesk Books is incomplete. Run the installer again. Your books are stored separately."
+    MessageBox MB_ICONSTOP "OpenBooks is incomplete. Run the installer again. Your books are stored separately."
     Quit
   SetOutPath "$EXEDIR"
   nsExec::ExecToStack '"$EXEDIR\runtime\node.exe" "$EXEDIR\desktop\launch.mjs" $0'

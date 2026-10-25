@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>TradeDesk Books · Desktop</title>
+    <title>OpenBooks · Desktop</title>
     <style>
       :root {
         font-family:
@@ -158,7 +158,7 @@
   </head>
   <body>
     <header>
-      <b>TradeDesk Books</b>
+      <b>OpenBooks</b>
       <p>Community · Your Windows desktop</p>
     </header>
     <main>
@@ -214,9 +214,9 @@
         <p>The application opens in your normal browser. It is accessible only on this computer.</p>
         <a id="open-books" class="button">Open my books</a
         ><button id="restart" class="secondary">Restart application</button
-        ><button id="quit" class="secondary">Stop TradeDesk Books</button>
+        ><button id="quit" class="secondary">Stop OpenBooks</button>
         <p class="muted">
-          Closing a browser tab leaves TradeDesk running. Backups run while the application and
+          Closing a browser tab leaves OpenBooks running. Backups run while the application and
           computer are on. Use the desktop shortcut to reopen it.
         </p>
         <dl id="details"></dl>
@@ -231,7 +231,7 @@
           <label>Backup folder<input name="backupFolder" id="backup-folder" required /></label
           ><label
             ><input name="dailyBackups" id="daily-backups" type="checkbox" />Back up automatically
-            once a day while TradeDesk is running</label
+            once a day while OpenBooks is running</label
           ><button class="secondary">Save backup settings</button
           ><button type="button" id="backup-now">Back up now</button>
         </form>
@@ -242,7 +242,7 @@
         </p>
         <h2>Restore a saved backup</h2>
         <p>
-          This replaces all businesses and accounts on this installation. TradeDesk first saves the
+          This replaces all businesses and accounts on this installation. OpenBooks first saves the
           current data, verifies the chosen backup, then restores it. Everyone must sign in again.
         </p>
         <form id="restore-form">
@@ -401,7 +401,7 @@
       $('quit').onclick = () =>
         act(async () => {
           await api('/quit', {});
-          message('TradeDesk Books has stopped. Use the desktop shortcut to start it again.');
+          message('OpenBooks has stopped. Use the desktop shortcut to start it again.');
           $('overview').hidden = true;
           $('backups').hidden = true;
         });

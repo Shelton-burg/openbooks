@@ -92,7 +92,7 @@ export async function* zipStore(files: AsyncIterable<ArchiveFile>) {
   yield end;
 }
 export async function zipEntries(file: Blob) {
-  if (file.size > 500000000) throw new Error('Choose a TradeDesk backup up to 500 MB.');
+  if (file.size > 500000000) throw new Error('Choose an OpenBooks backup up to 500 MB.');
   const entries: {
     name: string;
     offset: number;
@@ -121,7 +121,7 @@ export async function zipEntries(file: Blob) {
       size > 16000000 ||
       entries.length >= 5000
     )
-      throw new Error('Use an original, uncompressed TradeDesk backup.');
+      throw new Error('Use an original, uncompressed OpenBooks backup.');
     const name = new TextDecoder().decode(
       await file.slice(pos + 30, pos + 30 + length).arrayBuffer(),
     );

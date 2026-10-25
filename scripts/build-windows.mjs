@@ -17,10 +17,10 @@ function run(file, args) {
 }
 const flag = process.platform === 'win32' ? '/' : '-';
 run(makensis, [
-  flag + 'DOUTPUT=' + join(payload, 'TradeDesk Books.exe'),
+  flag + 'DOUTPUT=' + join(payload, 'OpenBooks.exe'),
   resolve('desktop/windows/launcher.nsi'),
 ]);
-const name = 'TradeDesk-Books-Setup-' + version + '-x64.exe',
+const name = 'OpenBooks-Setup-' + version + '-x64.exe',
   path = join(out, name);
 run(makensis, [
   flag + 'DPAYLOAD=' + payload,

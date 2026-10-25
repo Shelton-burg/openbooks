@@ -337,7 +337,7 @@ export function makeImportPlan(input: unknown, state: State, sourceId: string): 
         const source = g('account'),
           account = spec.accounts[source];
         if (!account || !accounts.some((a) => a[0] === account))
-          throw new Error('Map source account ' + source + ' to a TradeDesk account.');
+          throw new Error('Map source account ' + source + ' to an OpenBooks account.');
         if (numbers.has(account))
           throw new Error(
             'Several rows map to account ' +

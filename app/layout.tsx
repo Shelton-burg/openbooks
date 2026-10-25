@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'TradeDesk Books Community · Beta',
+  title: 'OpenBooks · Beta',
   description: 'Your invoices, bills and bookkeeping in one private workspace.',
   icons: {
     icon: '/favicon.svg',

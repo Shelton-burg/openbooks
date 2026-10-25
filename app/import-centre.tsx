@@ -311,7 +311,7 @@ export default function ImportCentre({
       <div className="notice">
         <FileText size={20} />
         <span>
-          Bring your records into TradeDesk. Upload an original, review a working copy, then confirm
+          Bring your records into OpenBooks. Upload an original, review a working copy, then confirm
           the import. Trial balances and dashboard screenshots can be saved as references.
         </span>
       </div>

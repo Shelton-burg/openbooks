@@ -712,7 +712,7 @@ function PeriodReports({
                       <TableHeader>
                         <TableRow>
                           <TableHead>Figure</TableHead>
-                          <TableHead>TradeDesk</TableHead>
+                          <TableHead>OpenBooks</TableHead>
                           <TableHead>Entered Xero value</TableHead>
                           <TableHead>Difference</TableHead>
                         </TableRow>

@@ -24,7 +24,7 @@ window.fetch = (input, init) => {
 createRoot(document.getElementById('root')!).render(
   <>
     <div className="community-demo-banner">
-      <strong>TradeDesk Books Community · Beta demo</strong>
+      <strong>OpenBooks · Beta demo</strong>
       <span>Fictional data · Read-only tour</span>
       <a href="./tradedesk-books-community.zip">Download source & installation guide</a>
     </div>

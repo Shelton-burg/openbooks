@@ -30,7 +30,7 @@ export function cutoverComparison(state: State, input: unknown) {
   if (new Set(p.balances.map((x) => x.account)).size !== p.balances.length)
     throw new Error('Use each mapped account once.');
   if (p.balances.some((x) => !accounts.some((a) => a[0] === x.account)))
-    throw new Error('Map every account to a valid TradeDesk account.');
+    throw new Error('Map every account to a valid OpenBooks account.');
   const r = report(state.events, p.periodFrom, p.date, p.basis),
     open = [
       ...agedDocuments(state.events, p.date, 'invoice'),

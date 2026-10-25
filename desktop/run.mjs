@@ -11,8 +11,8 @@ import {authorize, readJson} from './security.mjs';
 const install = resolve(dirname(fileURLToPath(import.meta.url)), '..'),
   app = join(install, 'app');
 const home =
-  process.env.TRADEDESK_DESKTOP_HOME || join(process.env.LOCALAPPDATA || '', 'TradeDesk Books');
-if (!process.env.LOCALAPPDATA && !process.env.TRADEDESK_DESKTOP_HOME)
+  process.env.OPENBOOKS_DESKTOP_HOME || join(process.env.LOCALAPPDATA || '', 'OpenBooks');
+if (!process.env.LOCALAPPDATA && !process.env.OPENBOOKS_DESKTOP_HOME)
   throw new Error('A Windows user profile is required.');
 const data = join(home, 'data'),
   lockPath = join(home, 'desktop.lock'),
@@ -47,7 +47,7 @@ const configured = () => {
   }
 };
 function openBrowser(url) {
-  if (process.env.TRADEDESK_DESKTOP_NO_BROWSER === '1') return;
+  if (process.env.OPENBOOKS_DESKTOP_NO_BROWSER === '1') return;
   if (process.platform !== 'win32') return;
   const p = spawn(
     join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'rundll32.exe'),
@@ -97,7 +97,7 @@ if (existing) {
     for (let n = 0; n < 100 && existsSync(lockPath); n++)
       await new Promise((r) => setTimeout(r, 100));
     if (existsSync(lockPath))
-      throw new Error('TradeDesk Books did not stop. Close it before updating.');
+      throw new Error('OpenBooks did not stop. Close it before updating.');
   } else {
     if (mode !== '--startup')
       openBrowser(
@@ -138,7 +138,7 @@ try {
         process.exit(0);
       }
     }
-    throw new Error('Another TradeDesk process is still starting.');
+    throw new Error('Another OpenBooks process is still starting.');
   }
   await unlink(lockPath);
   lock = await open(lockPath, 'wx', 0o600);
@@ -180,7 +180,7 @@ const env = () => {
     MAINTENANCE_TOKEN: maintenanceToken,
   };
 };
-const appPort = Number(process.env.TRADEDESK_DESKTOP_TEST_PORT || 38471);
+const appPort = Number(process.env.OPENBOOKS_DESKTOP_TEST_PORT || 38471);
 if (!Number.isInteger(appPort) || appPort < 1024 || appPort > 65535)
   throw new Error('Invalid application port.');
 appOrigin = 'http://127.0.0.1:' + appPort;
@@ -207,7 +207,7 @@ async function startApp() {
         new Error(
           'Port ' +
             appPort +
-            ' is already in use. Close the other application and reopen TradeDesk Books.',
+            ' is already in use. Close the other application and reopen OpenBooks.',
         ),
       ),
     );
@@ -231,7 +231,7 @@ async function startApp() {
       child = null;
       if (!closing) {
         lastError =
-          'The accounting service stopped. Reopen TradeDesk Books. See desktop.log for details.';
+          'The accounting service stopped. Reopen OpenBooks. See desktop.log for details.';
         log('Accounting process exited: ' + code);
       }
     }
@@ -483,7 +483,7 @@ try {
   await shutDown().catch(() => {});
   if (process.platform === 'win32' && !['--before-update', '--stop', '--startup'].includes(mode)) {
     const message =
-      'TradeDesk Books could not start. Open ' + logPath + ' for details. ' + e.message;
+      'OpenBooks could not start. Open ' + logPath + ' for details. ' + e.message;
     spawn(
       join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'msg.exe'),
       [process.env.USERNAME || '*', message],

@@ -15,9 +15,9 @@ const port = probe.address().port;
 await new Promise((r) => probe.close(r));
 const env = {
   ...process.env,
-  TRADEDESK_DESKTOP_HOME: home,
-  TRADEDESK_DESKTOP_TEST_PORT: String(port),
-  TRADEDESK_DESKTOP_NO_BROWSER: '1',
+  OPENBOOKS_DESKTOP_HOME: home,
+  OPENBOOKS_DESKTOP_TEST_PORT: String(port),
+  OPENBOOKS_DESKTOP_NO_BROWSER: '1',
 };
 const start = () => {
   child = spawn(process.execPath, [join(payload, 'desktop/run.mjs')], {
