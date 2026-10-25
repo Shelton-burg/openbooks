@@ -309,6 +309,28 @@
         color: #7fd4f5;
         transition: opacity 0.4s ease;
       }
+
+      /* scroll reveal (upgraded by JS; no-JS = fully visible) */
+      .rv {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+          transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+        transition-delay: var(--d, 0ms);
+      }
+      .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .rv {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+
       @media (max-width: 900px) {
         .hero-photo {
           opacity: 0.55;
@@ -1123,7 +1145,7 @@
 
     <section class="see" id="see">
       <div class="wrap">
-        <div class="sec-head">
+        <div class="sec-head" data-rv style="--d: 0ms">
           <div>
             <p class="kicker">02 — See it working</p>
             <h2>The books, live.</h2>
@@ -1135,7 +1157,7 @@
           <a class="go" href="./demo/">Open the interactive demo ↗</a>
         </div>
         <div class="shots">
-          <div>
+          <div data-rv style="--d: 0ms">
             <div class="frame">
               <div class="chrome">
                 <i></i><i></i><i></i><span class="url">openbooks — overview</span>
@@ -1151,7 +1173,7 @@
               things that actually need you.
             </p>
           </div>
-          <div>
+          <div data-rv style="--d: 90ms">
             <div class="frame">
               <div class="chrome">
                 <i></i><i></i><i></i><span class="url">openbooks — quotes</span>
@@ -1167,7 +1189,7 @@
               re-typing.
             </p>
           </div>
-          <div>
+          <div data-rv style="--d: 180ms">
             <div class="frame">
               <div class="chrome">
                 <i></i><i></i><i></i><span class="url">openbooks — invoices</span>
@@ -1182,7 +1204,7 @@
               <b>Invoices.</b> Draft, overdue, awaiting, paid — one list, nothing falls through.
             </p>
           </div>
-          <div>
+          <div data-rv style="--d: 270ms">
             <div class="frame">
               <div class="chrome">
                 <i></i><i></i><i></i><span class="url">openbooks — import centre</span>
@@ -1199,7 +1221,7 @@
             </p>
           </div>
         </div>
-        <p class="see-note">
+        <p class="see-note" data-rv style="--d: 320ms">
           Fictional data, read-only, nothing to sign up for — <a href="./demo/">try it yourself</a>.
         </p>
       </div>
@@ -1207,10 +1229,10 @@
 
     <section id="how" class="dark">
       <div class="wrap">
-        <p class="kicker">03 — How it works</p>
-        <h2>Four steps. That's the whole job.</h2>
+        <p class="kicker" data-rv style="--d: 0ms">03 — How it works</p>
+        <h2 data-rv style="--d: 60ms">Four steps. That's the whole job.</h2>
         <div class="steps">
-          <div class="step">
+          <div class="step" data-rv style="--d: 0ms">
             <span class="num">01 — QUOTE</span>
             <div>
               <h3>Quote the job</h3>
@@ -1220,7 +1242,7 @@
               </p>
             </div>
           </div>
-          <div class="step">
+          <div class="step" data-rv style="--d: 60ms">
             <span class="num">02 — REVIEW</span>
             <div>
               <h3>Post and review</h3>
@@ -1231,7 +1253,7 @@
               </p>
             </div>
           </div>
-          <div class="step">
+          <div class="step" data-rv style="--d: 120ms">
             <span class="num">03 — RECONCILE</span>
             <div>
               <h3>Match the bank, line by line</h3>
@@ -1241,7 +1263,7 @@
               </p>
             </div>
           </div>
-          <div class="step">
+          <div class="step" data-rv style="--d: 180ms">
             <span class="num">04 — REPORT</span>
             <div>
               <h3>BAS made boring</h3>
@@ -1257,10 +1279,10 @@
 
     <section class="why" id="why">
       <div class="wrap">
-        <p class="kicker">04 — Why OpenBooks</p>
-        <h2>Built different, on purpose.</h2>
+        <p class="kicker" data-rv style="--d: 0ms">04 — Why OpenBooks</p>
+        <h2 data-rv style="--d: 60ms">Built different, on purpose.</h2>
         <div class="whys">
-          <div class="whycard">
+          <div class="whycard" data-rv style="--d: 0ms">
             <span class="tag">Free</span>
             <h3>Free, actually.</h3>
             <p>
@@ -1268,7 +1290,7 @@
               — read it, fork it, keep it forever.
             </p>
           </div>
-          <div class="whycard">
+          <div class="whycard" data-rv style="--d: 90ms">
             <span class="tag">Private</span>
             <h3>Your books stay on your computer.</h3>
             <p>
@@ -1276,7 +1298,7 @@
               else's server ever sees your numbers.
             </p>
           </div>
-          <div class="whycard">
+          <div class="whycard" data-rv style="--d: 180ms">
             <span class="tag">Tradie-built</span>
             <h3>Started by a plumber.</h3>
             <p>
@@ -1285,7 +1307,7 @@
             </p>
           </div>
         </div>
-        <div class="founder">
+        <div class="founder" data-rv style="--d: 270ms">
           <div class="av">S</div>
           <p>
             <b>From the founder:</b> "I ran my plumbing business on software I didn't understand and
@@ -1298,11 +1320,13 @@
 
     <section id="run" class="dark">
       <div class="wrap">
-        <p class="kicker">05 — Run it</p>
-        <h2>Three ways to get going.</h2>
-        <p class="sub">Pick whichever fits. Same software, same data — all three are free.</p>
+        <p class="kicker" data-rv style="--d: 0ms">05 — Run it</p>
+        <h2 data-rv style="--d: 60ms">Three ways to get going.</h2>
+        <p class="sub" data-rv style="--d: 120ms">
+          Pick whichever fits. Same software, same data — all three are free.
+        </p>
         <div class="runs">
-          <div class="run">
+          <div class="run" data-rv style="--d: 0ms">
             <span class="tag">Easiest</span>
             <h3>Windows installer</h3>
             <p>
@@ -1310,7 +1334,7 @@
               accounts. Your books live on your PC and are backed up daily.
             </p>
           </div>
-          <div class="run">
+          <div class="run" data-rv style="--d: 90ms">
             <span class="tag">For tinkerers</span>
             <h3>Node 24</h3>
             <p>
@@ -1319,7 +1343,7 @@
               then open <code>http://localhost:3000</code>.
             </p>
           </div>
-          <div class="run">
+          <div class="run" data-rv style="--d: 180ms">
             <span class="tag">For servers</span>
             <h3>Docker</h3>
             <p>
@@ -1335,14 +1359,14 @@
       <div class="wrap">
         <div class="split">
           <div>
-            <p class="kicker">06 — The honest part</p>
-            <h2>What OpenBooks <em>isn't</em> — yet.</h2>
+            <p class="kicker" data-rv style="--d: 0ms">06 — The honest part</p>
+            <h2 data-rv style="--d: 60ms">What OpenBooks <em>isn't</em> — yet.</h2>
             <p class="sub">
               We'd rather tell you now than after your BAS is due. A working beta, tested hard,
               still growing.
             </p>
           </div>
-          <div class="limits">
+          <div class="limits" data-rv style="--d: 120ms">
             <ul>
               <li>No payroll or Single Touch Payroll — yet</li>
               <li>No live bank feeds — CSV import instead</li>
@@ -1358,11 +1382,13 @@
 
     <section class="road dark" id="roadmap">
       <div class="wrap">
-        <p class="kicker">07 — Roadmap</p>
-        <h2>Where it's going.</h2>
-        <p class="sub">Open source, in the open — the board is public, and you can shape it.</p>
+        <p class="kicker" data-rv style="--d: 0ms">07 — Roadmap</p>
+        <h2 data-rv style="--d: 60ms">Where it's going.</h2>
+        <p class="sub" data-rv style="--d: 120ms">
+          Open source, in the open — the board is public, and you can shape it.
+        </p>
         <div class="roadcols">
-          <div class="roadcol">
+          <div class="roadcol" data-rv style="--d: 0ms">
             <h3>In the beta now</h3>
             <ul>
               <li>Invoices, quotes, bills &amp; purchase orders</li>
@@ -1372,7 +1398,7 @@
               <li>129 automated tests and counting</li>
             </ul>
           </div>
-          <div class="roadcol plan">
+          <div class="roadcol plan" data-rv style="--d: 90ms">
             <h3>On the board</h3>
             <ul>
               <li>Single Touch Payroll</li>
@@ -1392,10 +1418,10 @@
 
     <section id="faq">
       <div class="wrap">
-        <p class="kicker">08 — Questions</p>
-        <h2>Asked. Answered.</h2>
+        <p class="kicker" data-rv style="--d: 0ms">08 — Questions</p>
+        <h2 data-rv style="--d: 60ms">Asked. Answered.</h2>
         <div class="faq">
-          <details>
+          <details data-rv style="--d: 0ms">
             <summary>Is OpenBooks really free? <span class="plus">+</span></summary>
             <p>
               Yes. The code is MIT-licensed — use it, change it, share it, build a business on it.
@@ -1403,7 +1429,7 @@
               support the project, contributing code, docs or bug reports is the best way.
             </p>
           </details>
-          <details>
+          <details data-rv style="--d: 50ms">
             <summary>
               Why would anyone give away accounting software? <span class="plus">+</span>
             </summary>
@@ -1414,7 +1440,7 @@
               a proper business.
             </p>
           </details>
-          <details>
+          <details data-rv style="--d: 100ms">
             <summary>Does it talk to the ATO? <span class="plus">+</span></summary>
             <p>
               Not yet. There's no lodgment and no Single Touch Payroll in the beta — you'll still
@@ -1423,14 +1449,14 @@
               accountant. ATO lodgment is on the roadmap.
             </p>
           </details>
-          <details>
+          <details data-rv style="--d: 150ms">
             <summary>Do I need to be technical to run it? <span class="plus">+</span></summary>
             <p>
               No. The Windows installer is the path for everyone: download, run, done. The Node and
               Docker options exist for people who prefer them, but they're optional, not required.
             </p>
           </details>
-          <details>
+          <details data-rv style="--d: 200ms">
             <summary>
               Is it as full-featured as the big cloud platforms? <span class="plus">+</span>
             </summary>
@@ -1441,7 +1467,7 @@
               business needs before switching.
             </p>
           </details>
-          <details>
+          <details data-rv style="--d: 250ms">
             <summary>Can I trust it with my books? <span class="plus">+</span></summary>
             <p>
               Your data stays on your own computer in a local database, with verified daily backups.
@@ -1455,7 +1481,7 @@
       </div>
     </section>
 
-    <section class="cta" id="download">
+    <section class="cta" id="download" data-rv style="--d: 0ms">
       <div class="wrap">
         <p class="kicker" style="color: var(--blue)">Ready when you are</p>
         <h2>Your books. Your computer. Free.</h2>
@@ -1555,6 +1581,32 @@
         });
         show(0);
         restart();
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var els = document.querySelectorAll('[data-rv]');
+        if (!els.length) return;
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced || !('IntersectionObserver' in window)) return;
+        els.forEach(function (el) {
+          el.classList.add('rv');
+        });
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add('in');
+                io.unobserve(en.target);
+              }
+            });
+          },
+          {threshold: 0.12, rootMargin: '0px 0px -36px 0px'},
+        );
+        els.forEach(function (el) {
+          io.observe(el);
+        });
       })();
     </script>
   </body>
