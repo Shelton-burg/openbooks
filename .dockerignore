@@ -1,0 +1,14 @@
+node_modules
+.next
+.data
+.env*
+!.env.example
+.git
+.openai
+demo-dist
+*.zip
+*.log
+*.tsbuildinfo
+
+windows-release
+.windows-tools

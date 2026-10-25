@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3000:3000'
+    environment:
+      APP_ORIGIN: ${APP_ORIGIN:-http://localhost:3000}
+      DATA_DIR: /data
+      MAINTENANCE_TOKEN: ${MAINTENANCE_TOKEN:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      RECEIPT_AI_MODEL: ${RECEIPT_AI_MODEL:-gpt-4.1-mini}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      EMAIL_FROM: ${EMAIL_FROM:-}
+    volumes:
+      - books-data:/data
+volumes:
+  books-data:

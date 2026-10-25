@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-AU">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>TradeDesk Books — Windows guide</title
+  ><style>
+    body {
+      font:
+        17px/1.65 Segoe UI,
+        Arial,
+        sans-serif;
+      color: #18304c;
+      background: #f4f7fb;
+      margin: 0;
+    }
+    main {
+      max-width: 850px;
+      background: white;
+      padding: 42px;
+      margin: 35px auto;
+      border-radius: 18px;
+    }
+    h1 {
+      line-height: 1.2;
+    }
+    h2 {
+      margin-top: 32px;
+    }
+    code {
+      font-size: 14px;
+      background: #edf3fa;
+      overflow-wrap: anywhere;
+    }
+    strong {
+      color: #143f75;
+    }
+    li {
+      margin: 10px 0;
+    }
+    .note {
+      padding: 18px;
+      background: #fff4dc;
+      border-left: 4px solid #e7ad28;
+    }
+  </style>
+  <main>
+    <p>TRADEDESK BOOKS · COMMUNITY</p>
+    <h1>Your books, on your Windows computer.</h1>
+    <p>
+      This installer includes the runtime and application. You do not need Node, Docker, an AI
+      account or a monthly software subscription.
+    </p>
+    <p class="note">
+      <strong>Unsigned beta for pilot testing.</strong> The installer has been cross-compiled and
+      its application tested on Linux. Windows installation, desktop launch, upgrade and uninstall
+      still need a Windows pilot. Keep your existing accounting system during testing. No
+      independent security or accountant certification is claimed.
+    </p>
+    <h2>Install and start</h2>
+    <ol>
+      <li>
+        Use the installer supplied by the project owner. Windows may show an unknown-publisher or
+        SmartScreen warning because this beta is not digitally signed. If Windows or your
+        organisation blocks it, stop and request a signed build; do not disable security controls.
+      </li>
+      <li>
+        Run the installer. It installs for your current Windows account without requiring
+        administrator rights.
+      </li>
+      <li>
+        Choose whether to start quietly when you sign in to Windows. This is optional and off by
+        default.
+      </li>
+      <li>
+        Select <strong>Open TradeDesk Books</strong> on the final screen. Your normal browser opens
+        the first-run wizard.
+      </li>
+      <li>
+        Enter your business, name, email and a password of at least 14 characters. Then sign in and
+        check your business settings before importing records.
+      </li>
+    </ol>
+    <h2>Everyday use</h2>
+    <p>
+      Open the <strong>TradeDesk Books</strong> desktop shortcut. The application uses
+      <code>http://127.0.0.1:38471</code> and is accessible only on this computer. This does not
+      publish your books online or give other computers access.
+    </p>
+    <p>
+      Closing the browser leaves the app running. From the Start menu, open
+      <strong>TradeDesk Books → Desktop controls and backups</strong> to manage it, or
+      <strong>Stop TradeDesk Books</strong> to stop it.
+    </p>
+    <h2>Backups</h2>
+    <p>
+      Desktop controls provides <strong>Back up now</strong>, a backup-folder setting and
+      <strong>Restore selected backup</strong>. Daily backups run while the app is running; a
+      sleeping or switched-off computer cannot run them. The app checks for an overdue backup on
+      startup and periodically afterwards.
+    </p>
+    <p>
+      A full backup covers every business, user account, financial record and original receipt on
+      this installation. Files are checked before success is reported. The automatic run also
+      attempts the existing business snapshots and recurring draft generation. It never posts
+      invoices or sends emails. Any maintenance failure appears in Desktop controls.
+    </p>
+    <p>
+      The default backup folder is on this computer. Choose an external drive or copy completed
+      backup folders elsewhere. Keep each folder intact, including <code>manifest.json</code> and
+      <code>data</code>. Backups are not encrypted by this application and contain private financial
+      records and password hashes; protect the drive. The app does not automatically delete old
+      backups.
+    </p>
+    <h2>Restore</h2>
+    <p>
+      Choose a saved backup in Desktop controls and type <strong>RESTORE</strong>. This restores the
+      whole installation, including all businesses and users. The app verifies the backup, saves the
+      current data, stops the accounting process, restores the chosen data and restarts. Existing
+      sessions and outstanding invitation links are revoked. Sign in with the password that applied
+      at the time of the backup.
+    </p>
+    <p>
+      The previous data directory is retained separately and its location is displayed. If
+      restoration fails, do not delete retained folders. Ask the maintainer for recovery help.
+    </p>
+    <h2>Where data lives</h2>
+    <ul>
+      <li>Application: <code>%LOCALAPPDATA%\Programs\TradeDesk Books</code></li>
+      <li>Books and receipts: <code>%LOCALAPPDATA%\TradeDesk Books\data</code></li>
+      <li>Default backups: <code>%LOCALAPPDATA%\TradeDesk Books\backups</code></li>
+      <li>Startup/error log: <code>%LOCALAPPDATA%\TradeDesk Books\desktop.log</code></li>
+    </ul>
+    <p>
+      These locations are separate so reinstalling or uninstalling the app retains your books. They
+      are private to your Windows profile under normal Windows permissions. This app does not
+      encrypt the live database; use appropriate device protection.
+    </p>
+    <h2>Updates and uninstalling</h2>
+    <p>
+      Updates are manual. Run a newer installer from a trusted source. The existing app must stop
+      and complete a verified backup before its application files are replaced. If this fails, the
+      update stops. There is no silent download or auto-update service.
+    </p>
+    <p>
+      Uninstall through Windows Installed apps. Uninstalling removes application files and
+      shortcuts, and leaves data and backups intact. Reinstalling for the same Windows account uses
+      the retained data. Do not uninstall by deleting random data folders.
+    </p>
+    <h2>Limits and troubleshooting</h2>
+    <ul>
+      <li>
+        64-bit Windows 10 or newer; Windows 11 recommended. ARM64-native and 32-bit installers are
+        not included.
+      </li>
+      <li>
+        No payroll, live bank feeds, tax lodgment, card-payment integration or automatic email
+        delivery. AI/email providers are off in the desktop package.
+      </li>
+      <li>
+        Do not move the live database into a shared network or cloud-sync folder. Back up completed
+        snapshots instead.
+      </li>
+      <li>
+        If port 38471 is in use, close the conflicting application and reopen TradeDesk. The
+        launcher does not silently connect to another service.
+      </li>
+      <li>
+        If setup or launch fails, inspect the desktop log. Do not share session files, full backups,
+        receipts or passwords in public bug reports.
+      </li>
+      <li>
+        For a forgotten password, contact the installation maintainer; desktop password-reset UI is
+        not included in this beta.
+      </li>
+    </ul>
+  </main>
+</html>

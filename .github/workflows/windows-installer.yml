@@ -1,0 +1,47 @@
+name: Windows installer beta
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.0'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+      - run: node scripts/prepare-windows-runtime.mjs
+      - name: Stage Windows payload
+        shell: pwsh
+        run: |
+          $env:NODE_WINDOWS_DIR = Join-Path $PWD '.windows-tools/node-v24.22.0-win-x64'
+          npm run desktop:stage
+      - name: Exercise packaged desktop lifecycle
+        run: node scripts/test-desktop-smoke.mjs
+      - name: Locate installer compiler
+        shell: pwsh
+        run: |
+          $compiler = 'C:\Program Files (x86)\NSIS\makensis.exe'
+          if (!(Test-Path $compiler)) { choco install nsis --no-progress -y }
+          if (!(Test-Path $compiler)) { throw 'NSIS compiler is unavailable' }
+          "MAKENSIS=$compiler" | Out-File -FilePath $env:GITHUB_ENV -Append
+      - run: npm run desktop:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TradeDesk-Books-Windows-beta
+          path: |
+            windows-release/TradeDesk-Books-Setup-*.exe
+            windows-release/SHA256SUMS.txt
+            docs/WINDOWS-START-HERE.html
+          if-no-files-found: error
+          retention-days: 30

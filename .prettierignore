@@ -1,0 +1,10 @@
+node_modules
+.next
+demo-dist
+dist
+.data
+windows-release
+.windows-tools
+package-lock.json
+vendor
+drizzle/meta

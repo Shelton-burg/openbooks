@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TradeDesk Books · Desktop</title>
+    <style>
+      :root {
+        font-family:
+          Segoe UI,
+          Arial,
+          sans-serif;
+        color: #17263d;
+        background: #f3f6fb;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        background: #10243e;
+        color: white;
+        padding: 25px max(22px, calc((100vw - 930px) / 2));
+      }
+      header b {
+        font-size: 24px;
+      }
+      header p {
+        color: #b8c9e2;
+        margin-bottom: 0;
+      }
+      main {
+        max-width: 980px;
+        margin: 30px auto;
+        padding: 0 22px 40px;
+      }
+      .card {
+        background: white;
+        border: 1px solid #dbe3ee;
+        border-radius: 16px;
+        padding: 28px;
+        margin: 18px 0;
+        box-shadow: 0 6px 24px #193b6510;
+      }
+      h1 {
+        font-size: 28px;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 21px;
+      }
+      p {
+        line-height: 1.55;
+        color: #52657e;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin: 16px 0;
+      }
+      input,
+      select {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #b8c7db;
+        border-radius: 8px;
+        margin-top: 8px;
+        font: inherit;
+      }
+      input[type='checkbox'] {
+        display: inline;
+        width: auto;
+        margin-right: 9px;
+      }
+      button,
+      .button {
+        display: inline-block;
+        background: #1566c5;
+        border: 0;
+        color: white;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font:
+          600 15px Segoe UI,
+          sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+        margin: 8px 8px 0 0;
+      }
+      button.secondary {
+        background: #edf2f9;
+        color: #23476e;
+      }
+      button.danger {
+        background: #a83339;
+      }
+      button:disabled {
+        opacity: 0.5;
+        cursor: wait;
+      }
+      .muted {
+        font-size: 14px;
+      }
+      .notice {
+        padding: 16px;
+        border-radius: 8px;
+        background: #eaf3ff;
+        color: #17487b;
+        margin: 16px 0;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .error {
+        background: #fff0ed;
+        color: #9a2e20;
+      }
+      code {
+        overflow-wrap: anywhere;
+      }
+      dl {
+        display: grid;
+        grid-template-columns: 135px 1fr;
+        gap: 12px;
+      }
+      dt {
+        font-weight: bold;
+      }
+      dd {
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      @media (max-width: 650px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .card {
+          padding: 20px;
+        }
+        dl {
+          grid-template-columns: 1fr;
+        }
+        dd {
+          margin-bottom: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <b>TradeDesk Books</b>
+      <p>Community · Your Windows desktop</p>
+    </header>
+    <main>
+      <div id="message" class="notice" role="status">Opening your desktop controls…</div>
+      <section id="setup" class="card" hidden>
+        <h1>Let’s set up your books</h1>
+        <p>
+          Create the owner account for this computer. Your password stays on this computer; no email
+          or payment is required.
+        </p>
+        <form id="setup-form">
+          <div class="grid">
+            <label
+              >Your name<input name="name" autocomplete="name" required maxlength="100" /></label
+            ><label>Business name<input name="business" required maxlength="160" /></label>
+          </div>
+          <label
+            >Email for signing in<input
+              name="email"
+              type="email"
+              autocomplete="username"
+              required
+              maxlength="200"
+          /></label>
+          <div class="grid">
+            <label
+              >Password<input
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="14"
+                maxlength="128"
+                required /></label
+            ><label
+              >Confirm password<input
+                name="confirm"
+                type="password"
+                autocomplete="new-password"
+                minlength="14"
+                maxlength="128"
+                required
+            /></label>
+          </div>
+          <p class="muted">
+            Use at least 14 characters. This creates an empty business. You can import and check
+            your existing books afterwards.
+          </p>
+          <button>Create my account</button>
+        </form>
+      </section>
+      <section id="overview" class="card" hidden>
+        <h1>Your desktop is ready</h1>
+        <p>The application opens in your normal browser. It is accessible only on this computer.</p>
+        <a id="open-books" class="button">Open my books</a
+        ><button id="restart" class="secondary">Restart application</button
+        ><button id="quit" class="secondary">Stop TradeDesk Books</button>
+        <p class="muted">
+          Closing a browser tab leaves TradeDesk running. Backups run while the application and
+          computer are on. Use the desktop shortcut to reopen it.
+        </p>
+        <dl id="details"></dl>
+      </section>
+      <section id="backups" class="card" hidden>
+        <h2>Backups and receipts</h2>
+        <p>
+          A backup includes all businesses, accounts, books and original receipts on this
+          installation. Each file is checked before the backup is marked complete.
+        </p>
+        <form id="settings-form">
+          <label>Backup folder<input name="backupFolder" id="backup-folder" required /></label
+          ><label
+            ><input name="dailyBackups" id="daily-backups" type="checkbox" />Back up automatically
+            once a day while TradeDesk is running</label
+          ><button class="secondary">Save backup settings</button
+          ><button type="button" id="backup-now">Back up now</button>
+        </form>
+        <p class="muted">
+          The default folder is on this computer. Choose an external drive or copy backups elsewhere
+          to protect against losing the computer. Backups contain private information and are not
+          encrypted by this app. Older backups are kept until you remove them.
+        </p>
+        <h2>Restore a saved backup</h2>
+        <p>
+          This replaces all businesses and accounts on this installation. TradeDesk first saves the
+          current data, verifies the chosen backup, then restores it. Everyone must sign in again.
+        </p>
+        <form id="restore-form">
+          <label>Saved backup<select id="backup-list" name="id" required></select></label
+          ><label
+            >Type RESTORE to confirm<input
+              name="confirm"
+              autocomplete="off"
+              required
+              pattern="RESTORE" /></label
+          ><button class="danger">Restore selected backup</button>
+        </form>
+      </section>
+      <p class="muted">
+        Windows beta · Keep your existing accounting system during testing. No payroll, bank feeds
+        or automatic tax lodgment. AI and email providers are off in this desktop release.
+      </p>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      let token = location.hash.slice(1) || sessionStorage.getItem('desktop-token');
+      if (location.hash) {
+        sessionStorage.setItem('desktop-token', token);
+        history.replaceState(null, '', '/');
+      }
+      let state;
+      function message(text, error = false) {
+        $('message').textContent = text;
+        $('message').className = 'notice' + (error ? ' error' : '');
+      }
+      async function api(path, body) {
+        const r = await fetch(path, {
+          method: body ? 'POST' : 'GET',
+          headers: {
+            'x-desktop-token': token || '',
+            ...(body ? {'Content-Type': 'application/json'} : {}),
+          },
+          ...(body ? {body: JSON.stringify(body)} : {}),
+        });
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error || 'Action failed.');
+        return d;
+      }
+      async function refresh() {
+        state = await api('/status');
+        $('setup').hidden = state.configured;
+        $('overview').hidden = !state.configured;
+        $('backups').hidden = !state.configured;
+        $('open-books').href = state.appOrigin;
+        $('backup-folder').value = state.backupFolder;
+        $('daily-backups').checked = state.dailyBackups;
+        const dl = $('details');
+        dl.replaceChildren();
+        for (const [k, v] of [
+          ['Version', state.version],
+          ['Data folder', state.dataFolder],
+          [
+            'Last backup',
+            state.lastBackup
+              ? new Date(state.lastBackup.createdAt).toLocaleString()
+              : 'No verified backup yet',
+          ],
+        ]) {
+          const dt = document.createElement('dt'),
+            dd = document.createElement('dd');
+          dt.textContent = k;
+          dd.textContent = v;
+          dl.append(dt, dd);
+        }
+        const list = $('backup-list');
+        list.replaceChildren();
+        for (const b of state.backups) {
+          const o = document.createElement('option');
+          o.value = b.id;
+          o.textContent = new Date(b.createdAt).toLocaleString() + ' · ' + b.reason;
+          list.append(o);
+        }
+        if (!state.backups.length) {
+          const o = document.createElement('option');
+          o.value = '';
+          o.textContent = 'Create a backup first';
+          list.append(o);
+        }
+        message(
+          state.lastError ||
+            (state.lastBackup && Date.now() - Date.parse(state.lastBackup.createdAt) > 48 * 3600000
+              ? 'Your last backup is over two days old. Back up now.'
+              : state.configured
+                ? 'Your books stay on this computer.'
+                : 'Welcome. Create your owner account to get started.'),
+          !!state.lastError,
+        );
+      }
+      async function act(fn) {
+        document.querySelectorAll('button').forEach((b) => (b.disabled = true));
+        try {
+          await fn();
+        } catch (e) {
+          message(e.message, true);
+        } finally {
+          document.querySelectorAll('button').forEach((b) => (b.disabled = false));
+        }
+      }
+      $('setup-form').onsubmit = (e) => {
+        e.preventDefault();
+        act(async () => {
+          message('Creating your account…');
+          const d = await api('/setup', Object.fromEntries(new FormData(e.target)));
+          e.target.reset();
+          await refresh();
+          message('Account created. Open your books and sign in.');
+          location.assign(d.url);
+        });
+      };
+      $('settings-form').onsubmit = (e) => {
+        e.preventDefault();
+        act(async () => {
+          await api('/settings', {
+            backupFolder: $('backup-folder').value,
+            dailyBackups: $('daily-backups').checked,
+          });
+          await refresh();
+          message('Backup settings saved.');
+        });
+      };
+      $('backup-now').onclick = () =>
+        act(async () => {
+          message('Saving and verifying your books and original receipts…');
+          const d = await api('/backup', {});
+          await refresh();
+          message(
+            d.warning
+              ? 'Full desktop backup saved. Attention: ' + d.warning
+              : 'Backup saved and verified.',
+            !!d.warning,
+          );
+        });
+      $('restore-form').onsubmit = (e) => {
+        e.preventDefault();
+        act(async () => {
+          message('Verifying the backup and saving the current data. Keep this window open…');
+          const d = await api('/restore', Object.fromEntries(new FormData(e.target)));
+          e.target.reset();
+          await refresh();
+          message(
+            'Restore complete. Sign in again to review your books. Previous data retained at ' +
+              d.previousData,
+          );
+        });
+      };
+      $('restart').onclick = () =>
+        act(async () => {
+          await api('/restart', {});
+          await refresh();
+        });
+      $('quit').onclick = () =>
+        act(async () => {
+          await api('/quit', {});
+          message('TradeDesk Books has stopped. Use the desktop shortcut to start it again.');
+          $('overview').hidden = true;
+          $('backups').hidden = true;
+        });
+      refresh().catch((e) => message(e.message, true));
+    </script>
+  </body>
+</html>
