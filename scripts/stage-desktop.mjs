@@ -42,10 +42,17 @@ await writeFile(
   ),
 );
 // The app uses local plain images; Next image optimization is disabled.
-// Native image/compiler dependencies are unnecessary in the production runtime.
+// Native image/compiler dependencies are unnecessary in the production runtime,
+// but @next/env is plain JS and required by next/config.js — keep it.
 const nm = join(target, 'app/node_modules');
-for (const name of ['sharp', '@img', '@next'])
-  await rm(join(nm, name), {recursive: true, force: true});
+for (const name of ['sharp', '@img']) await rm(join(nm, name), {recursive: true, force: true});
+const nxt = join(nm, '@next');
+if (await lstat(nxt).catch(() => null)) {
+  for (const item of await readdir(nxt)) {
+    if (item.startsWith('swc') || item === 'eslint-plugin-next')
+      await rm(join(nxt, item), {recursive: true, force: true});
+  }
+}
 // Preserve package notices even when Next's runtime tracing omits them.
 async function notices(dir, source) {
   for (const item of await readdir(dir, {withFileTypes: true})) {

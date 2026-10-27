@@ -16,6 +16,12 @@ npm run desktop:stage
 node scripts/test-desktop-smoke.mjs
 $env:MAKENSIS = 'C:\Program Files (x86)\NSIS\makensis.exe'
 npm run desktop:build
+
+# Real-EXE gate (release gate #1): install silently to a scratch dir and drive
+# the installed launcher through first run.
+$env:OPENBOOKS_INSTALL_DIR = 'C:\scratch\ob-install'
+.\windows-release\OpenBooks-Setup-0.1.0-beta.4-x64.exe /S /D=$env:OPENBOOKS_INSTALL_DIR
+node scripts/test-desktop-exe-smoke.mjs
 ```
 
 The runtime downloader pins the official Node ZIP and SHA-256. Output is under `windows-release`: an `.exe`, checksum file and staged payload. `.github/workflows/windows-installer.yml` runs this sequence on a Windows runner when manually dispatched or a version tag is pushed. It uploads build artifacts; it does not automatically publish a public release. No workflow has been run without a destination repository.

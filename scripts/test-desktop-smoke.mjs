@@ -1,11 +1,17 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {mkdtemp, readFile, rm} from 'node:fs/promises';
+import {cp, mkdtemp, readFile, rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import {createServer} from 'node:net';
 const home = await mkdtemp(join(tmpdir(), 'td-desktop-smoke-'));
-const payload = resolve('windows-release/payload');
+// Run from a COPY outside the repo tree: module resolution must not be able to
+// walk up into the repository's dev node_modules and hide a missing runtime
+// dependency (this once masked a missing @next/env in the installed app).
+const staged = resolve('windows-release/payload');
+const isolated = join(await mkdtemp(join(tmpdir(), 'td-desktop-payload-')), 'payload');
+await cp(staged, isolated, {recursive: true, dereference: true});
+const payload = isolated;
 let child;
 let session, origin;
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
