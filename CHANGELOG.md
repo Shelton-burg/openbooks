@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-beta.4 — 2026-10-27
+
+- **Windows installer rebuilt under the OpenBooks name** (`OpenBooks-Setup-0.1.0-beta.4-x64.exe`, unsigned beta). The first-run desktop control page got the OpenBooks look (sky buttons, navy header).
+- Demo copy fixes: correct singular/plural on the overview and Xero reference screens ("1 overdue invoice", "1 draft invoice", "2 bank lines").
+- Landing page: rotating hero with synced copy and click-to-skip, symmetric 2x2 real-app screenshots, alternating dark/light sections, FAQ and roadmap, scroll-reveal animations. Site assets whitelisted in the release-content check.
+
 ## 0.1.0-beta.3 — 2026-10-25
 
 - **Rebranded to OpenBooks.** App, login screen, desktop packaging scripts, docs and repository are now OpenBooks. The project remains MIT-licensed; the TradeDesk name and logo remain separate from the code.
