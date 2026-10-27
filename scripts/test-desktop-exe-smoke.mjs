@@ -99,4 +99,20 @@ assert.ok(gone, 'desktop service did not shut down');
 console.log('PASS real EXE: clean quit');
 
 await rm(home, {recursive: true, force: true});
+
+// Self-cleanup when testing into a scratch dir: the installer remembers its
+// InstallDir in HKCU\Software\OpenBooks and rewrites the desktop + Start Menu
+// shortcuts, which would poison a real install on the same machine.
+if (INSTALL.toLowerCase().includes(tmpdir().toLowerCase())) {
+  const ps = [
+    "Remove-ItemProperty -Path 'HKCU:\Software\OpenBooks' -Name 'InstallDir' -ErrorAction SilentlyContinue",
+    "Remove-ItemProperty -Path 'HKCU:\Software\OpenBooks' -Name 'Version' -ErrorAction SilentlyContinue",
+    "Remove-Item -Path 'HKCU:\Software\OpenBooks' -Recurse -Force -ErrorAction SilentlyContinue",
+    "$d = [Environment]::GetFolderPath('Desktop'); Remove-Item (Join-Path $d 'OpenBooks.lnk') -Force -ErrorAction SilentlyContinue",
+    "$s = [Environment]::GetFolderPath('StartMenu'); Remove-Item (Join-Path $s 'Programs\OpenBooks') -Recurse -Force -ErrorAction SilentlyContinue",
+  ].join('; ');
+  const {execFileSync} = await import('node:child_process');
+  execFileSync('powershell', ['-NoProfile', '-Command', ps]);
+  await rm(INSTALL, {recursive: true, force: true});
+}
 console.log('ALL REAL-EXE TESTS PASS');
