@@ -10,7 +10,7 @@
           Segoe UI,
           Arial,
           sans-serif;
-        color: #17263d;
+        color: #0b2b40;
         background: #f3f6fb;
       }
       * {
@@ -20,16 +20,17 @@
         margin: 0;
       }
       header {
-        background: #10243e;
+        background: linear-gradient(180deg, #041c2e 0%, #06283d 100%);
         color: white;
         padding: 25px max(22px, calc((100vw - 930px) / 2));
       }
       header b {
         font-size: 24px;
+        letter-spacing: -0.02em;
       }
       header p {
-        color: #b8c9e2;
-        margin-bottom: 0;
+        color: #9db3c6;
+        margin: 6px 0 0;
       }
       main {
         max-width: 980px;
@@ -38,18 +39,21 @@
       }
       .card {
         background: white;
-        border: 1px solid #dbe3ee;
+        border: 1px solid #dbe8f2;
         border-radius: 16px;
         padding: 28px;
         margin: 18px 0;
-        box-shadow: 0 6px 24px #193b6510;
+        box-shadow: 0 8px 28px rgba(6, 40, 61, 0.08);
       }
       h1 {
         font-size: 28px;
         margin-top: 0;
+        color: #06283d;
+        letter-spacing: -0.01em;
       }
       h2 {
         font-size: 21px;
+        color: #06283d;
       }
       p {
         line-height: 1.55;
@@ -83,7 +87,7 @@
       button,
       .button {
         display: inline-block;
-        background: #1566c5;
+        background: #13b5ea;
         border: 0;
         color: white;
         border-radius: 8px;
@@ -96,11 +100,12 @@
         margin: 8px 8px 0 0;
       }
       button.secondary {
-        background: #edf2f9;
-        color: #23476e;
+        background: #eaf7fd;
+        color: #06283d;
+        border: 1px solid #dbe8f2;
       }
       button.danger {
-        background: #a83339;
+        background: #b3474d;
       }
       button:disabled {
         opacity: 0.5;
@@ -112,8 +117,9 @@
       .notice {
         padding: 16px;
         border-radius: 8px;
-        background: #eaf3ff;
-        color: #17487b;
+        background: #eaf7fd;
+        color: #0b2b40;
+        border: 1px solid #dbe8f2;
         margin: 16px 0;
         white-space: pre-wrap;
         overflow-wrap: anywhere;
@@ -121,6 +127,7 @@
       .error {
         background: #fff0ed;
         color: #9a2e20;
+        border-color: #f2c9c4;
       }
       code {
         overflow-wrap: anywhere;
@@ -158,7 +165,7 @@
   </head>
   <body>
     <header>
-      <b>OpenBooks</b>
+      <b><span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:#13b5ea;color:#fff;font-size:11px;margin-right:9px;vertical-align:2px">OB</span>OpenBooks</b>
       <p>Community · Your Windows desktop</p>
     </header>
     <main>
